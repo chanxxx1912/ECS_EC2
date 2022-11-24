@@ -1,39 +1,23 @@
-import boto3
-import json
-client = boto3.client('ecs')
-#client = session.client('route53domains', region_name='us-east-1')
-paginator = client.get_paginator('list_account_settings')
 
+#ECS.Client.list_container_instances()
+
+import boto3
 client = boto3.client("ecs", region_name="ap-northeast-1")
 
-paginator = client.get_paginator('list_container_instances')
-
-response_iterator = paginator.paginate(
-    
-    response = client.list_container_instances(
-    cluster='string',
-    filter='string',
-    nextToken='string',
-    maxResults=12,
-    status=["ACTIVE","DRAINING","REGISTERING","DEREGISTERING","REGISTRATION_FAILED"]
+response = client.list_container_instances(
+    cluster='first-cluster',
 )
-)   
-   
 
-for each_page in response_iterator:
-    for each_arn in each_page['containerInstanceArns']:
-        print("list_container_instances")
+print (response)
 
-# Errors
-File "E:\ECS_EC2\demo.py", line 13, in <module>
-    response = client.list_container_instances(
-  File "C:\Users\Chandana\AppData\Local\Programs\Python\Python310\lib\site-packages\botocore\client.py", line 530, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "C:\Users\Chandana\AppData\Local\Programs\Python\Python310\lib\site-packages\botocore\client.py", line 919, in _make_api_call
-    request_dict = self._convert_to_request_dict(
-  File "C:\Users\Chandana\AppData\Local\Programs\Python\Python310\lib\site-packages\botocore\client.py", line 990, in _convert_to_request_dict
-    request_dict = self._serializer.serialize_to_request(
-  File "C:\Users\Chandana\AppData\Local\Programs\Python\Python310\lib\site-packages\botocore\validate.py", line 381, in serialize_to_request
-    raise ParamValidationError(report=report.generate_report())
-botocore.exceptions.ParamValidationError: Parameter validation failed:
-Invalid type for parameter status, value: ['ACTIVE', 'DRAINING', 'REGISTERING', 'DEREGISTERING', 'REGISTRATION_FAILED'], type: <class 'list'>, valid types: <class 'str'>
+for containerInstanceArns in response['containerInstanceArns']:
+    for nextToken in containerInstanceArns [45]:
+        print(containerInstanceArns)
+        
+        
+        
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Result :
+    
+{'containerInstanceArns': ['arn:aws:ecs:ap-northeast-1:135634294856:container-instance/first-cluster/a69652351d5346f6b0ea85220322b60e'], 'ResponseMetadata': {'RequestId': 'ace34f2e-86e3-4d15-af25-79e3d97273cf', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': 'ace34f2e-86e3-4d15-af25-79e3d97273cf', 'content-type': 'application/x-amz-json-1.1', 'content-length': '135', 'date': 'Thu, 24 Nov 2022 08:02:43 GMT'}, 'RetryAttempts': 0}}
+arn:aws:ecs:ap-northeast-1:135634294856:container-instance/first-cluster/a69652351d5346f6b0ea85220322b60e    
