@@ -18,7 +18,7 @@ for page in response_iterator:
     report.close()
    
 #Opening the json file and printing the the content for what we are looking for
-with open ('file.json') as f:
+with open ('json.file') as f:
     data_file = json.load(f)       
 
 containerDefinitions = []   
