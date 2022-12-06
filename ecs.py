@@ -45,7 +45,17 @@ for i in cluster_name:
           print(container['lastStatus'])
 
 
-
+-----------------------------------------------------------------------------------
+Output
+nginx2
+135634294856.dkr.ecr.ap-northeast-1.amazonaws.com/redis
+RUNNING
+c2
+135634294856.dkr.ecr.ap-northeast-1.amazonaws.com/redis
+RUNNING
+dockerimage
+135634294856.dkr.ecr.ap-northeast-1.amazonaws.com/redis
+RUNNING
    
 
        
