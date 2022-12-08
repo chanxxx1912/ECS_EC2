@@ -45,15 +45,12 @@ for name in cluster_name:
         ]
 
     )
-    output = (json.dumps(describe_task,indent=4,default=str)) 
-    report = open('test.json', 'w')
-    report.write((json.dumps(describe_task,indent=4,default=str)))
-    report.close()
-    with open ('test.json') as f:
-        data_file = json.load(f)
+    
+   
+  
     containers = []   
     
-    tasks = data_file['tasks']
+    tasks = describe_task['tasks']
     
     for task_details in tasks:
         containers = task_details['containers']
@@ -70,25 +67,11 @@ for name in cluster_name:
          )
          print( container['name'],tags_in_task_definition['tags'])
         
-        
- 
-
-    
-    
-  
-  
+---------------------------------------------------------------------------------------------------------------------
 
 
- 
-   
-
-
-
-        
-      
-------------------      ------------------------------------------------------------------------------------------
-output
-PS E:\7-12> python new.py 
+Output
+PS E:\7-12> python new.py
 env [{'key': 'ecs', 'value': 'instance'}, {'key': 'aws', 'value': 'resource'}]
 env [{'key': 'value', 'value': 'micro'}, {'key': 'aws:ecs:clusterName', 'value': 'env'}]
 redis1
@@ -118,7 +101,7 @@ testing [{'key': 'jbl', 'value': 'go'}, {'key': 'sound', 'value': 'noise'}]
 prod [{'key': 'skills', 'value': 'art'}, {'key': 'aws:ecs:clusterName', 'value': 'prod'}]
 production
 nginx:latest
-RUNNING     
+RUNNING
 production [{'key': 'name', 'value': 'task'}, {'key': 'image', 'value': 'pic'}]
 prod [{'key': 'morals', 'value': 'value'}, {'key': 'aws:ecs:clusterName', 'value': 'prod'}]
 c2
@@ -149,16 +132,3 @@ containerc1
 nginx:perl
 RUNNING
 containerc1 [{'key': 'city', 'value': 'mumbai'}, {'key': 'capital', 'value': 'delhi'}]
-        
- 
-
-    
-    
-  
-  
-
-
- 
-   
-
-
