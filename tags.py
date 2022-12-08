@@ -65,10 +65,25 @@ for name in cluster_name:
          print(container['lastStatus'])
          
 
-         tags_in_describe_task =  client.list_tags_for_resource(
+         tags_in_task_definition  =  client.list_tags_for_resource(
             resourceArn=(task_details['taskDefinitionArn'])
          )
-         print( container['name'],tags_in_describe_task['tags'])
+         print( container['name'],tags_in_task_definition['tags'])
+        
+        
+ 
+
+    
+    
+  
+  
+
+
+ 
+   
+
+
+
         
       
 ------------------      ------------------------------------------------------------------------------------------
